@@ -1,5 +1,5 @@
 # have-xpath
-> expect(element).to.have.xpath('//blink')
+> haveXpath(element, '//blink')
 
 ## Installation
 ```bash
@@ -15,15 +15,13 @@
 ## Usage
 
 ```javascript
-var chai = require('chai');
 var React = require('react');
 var TestUtils = require('react-addons-test-utils');
-var chaiHaveXpath = require('have-xpath');
-var expect = chai.expect;
-chai.use(chaiHaveXpath);
+var haveXpath = require('have-xpath');
 
 var component = TestUtils.renderIntoDocument(<h1>hi there o/</h1>);
-expect(component).to.have.xpath('//h1[contains(., "hi there o/")]');
+
+haveXpath(component, '//h1') // => true
 ```
 
 ----------------------
