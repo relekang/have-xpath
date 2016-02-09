@@ -1,0 +1,8 @@
+setup_tasks:
+ - npm install
+
+tasks:
+ - npm run lint
+ - npm test
+ - npm uninstall react-dom react-addons-test-utils
+ - npm install react@0.13 && npm test
