@@ -1,9 +1,9 @@
-# chai-have-xpath
+# have-xpath
 > expect(element).to.have.xpath('//blink')
 
 ## Installation
 ```bash
-> npm install --save-dev chai-have-xpath
+> npm install --save-dev have-xpath
 ```
 
 ## Development
@@ -18,7 +18,7 @@
 var chai = require('chai');
 var React = require('react');
 var TestUtils = require('react-addons-test-utils');
-var chaiHaveXpath = require('chai-have-xpath');
+var chaiHaveXpath = require('have-xpath');
 var expect = chai.expect;
 chai.use(chaiHaveXpath);
 

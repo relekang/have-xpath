@@ -1,33 +1,26 @@
 /* eslint-env mocha */
-const {expect} = chai;
+/* eslint-disable no-unused-expressions */
+import {expect} from 'chai';
+
+import {haveXpath} from '../src/index';
+
 import React from './React';
 import TestUtils from './TestUtils';
 
 describe('React components', () => {
-  it('should find valid xpath in react component', () => {
+  it('should return true if valid xpath is found in react component', () => {
     const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
-    expect(component).to.have.xpath('//blink');
+    expect(haveXpath(component, '//blink')).to.be.true;
   });
 
-  it('should find valid xpath in react component twice', () => {
+  it('should return true if valid xpath is found in react component twice', () => {
     const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
-    expect(component).to.have.xpath('//blink');
-    expect(component).to.have.xpath('//blink');
+    expect(haveXpath(component, '//blink')).to.be.true;
+    expect(haveXpath(component, '//blink')).to.be.true;
   });
 
-  describe('when it does not find valid xpath in react component', () => {
-    it('should throw', () => {
-      const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
-      expect(() => {
-        expect(component).to.have.xpath('//h1');
-      }).to.throw('to have xpath \'//h1\'');
-    });
-
-    it('should throw with outerHTML of the component', () => {
-      const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
-      expect(() => {
-        expect(component).to.have.xpath('//h1');
-      }).to.throw('hi</blink>');
-    });
+  it('should return false if valid xpath is not found in react component', () => {
+    const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
+    expect(haveXpath(component, '//blink')).to.be.true;
   });
 });

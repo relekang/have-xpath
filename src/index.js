@@ -1,5 +1,5 @@
 /* eslint-env browser */
-import {findSingleNode, getFindDOMNode} from './helpers';
+import {findSingleNode, getReactDomFindDOMNode, getReactFindDOMNode} from './helpers';
 
 let findDOMNode = findDOMNode || (global && global.findDOMNode);
 
@@ -11,16 +11,13 @@ function haveDomNodeWithXpath(domNode, expression) {
   return xpathNode !== null;
 }
 
-export default function haveXpath(Chai) {
-  Chai.Assertion.addMethod('xpath', function evaluateXpath(xpath) {
-    findDOMNode = findDOMNode || getFindDOMNode();
+export function getFindDOMNode() {
+  return getReactDomFindDOMNode() || getReactFindDOMNode();
+}
 
-    const domNode = findDOMNode(this._obj);
+export function haveXpath(node, xpath) {
+  findDOMNode = findDOMNode || getFindDOMNode();
 
-    this.assert(
-      haveDomNodeWithXpath(domNode, xpath),
-      'Expected "' + domNode.outerHTML + '" to have xpath \'' + xpath + '\'',
-      'Expected "' + domNode.outerHTML + '" to not have xpath \'' + xpath + '\''
-    );
-  });
+  const domNode = findDOMNode(node);
+  return haveDomNodeWithXpath(domNode, xpath);
 }

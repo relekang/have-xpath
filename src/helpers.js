@@ -1,4 +1,4 @@
-function getReactDomFindDOMNode() {
+export function getReactDomFindDOMNode() {
   try {
     return require('react-dom').findDOMNode;
   } catch (error) {
@@ -8,7 +8,7 @@ function getReactDomFindDOMNode() {
   }
 }
 
-function getReactFindDOMNode() {
+export function getReactFindDOMNode() {
   try {
     return require('react').findDOMNode;
   } catch (error) {
@@ -16,10 +16,6 @@ function getReactFindDOMNode() {
       throw error;
     }
   }
-}
-
-export function getFindDOMNode() {
-  return getReactDomFindDOMNode() || getReactFindDOMNode();
 }
 
 export function getFirstOrderedNodeType() {

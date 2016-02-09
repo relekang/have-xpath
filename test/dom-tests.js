@@ -1,16 +1,22 @@
 /* eslint-env mocha, browser */
-const {expect} = chai;
+/* eslint-disable no-unused-expressions */
+import {expect} from 'chai';
+
+import {haveXpath} from '../src/index';
 
 describe('DOM nodes', () => {
-  it('should find valid xpath in element', () => {
-    const element = document.createElement('blink');
-    expect(element).to.have.xpath('//blink');
+  const element = document.createElement('blink');
+
+  it('should return true if valid xpath is found in react component', () => {
+    expect(haveXpath(element, '//blink')).to.be.true;
   });
 
-  it('should throw if it does not find valid xpath in element', () => {
-    const element = document.createElement('div');
-    expect(() => {
-      expect(element).to.have.xpath('//h1');
-    }).to.throw('Expected \"<div></div>\" to have xpath \'//h1\'');
+  it('should return true if valid xpath is found in react component twice', () => {
+    expect(haveXpath(element, '//blink')).to.be.true;
+    expect(haveXpath(element, '//blink')).to.be.true;
+  });
+
+  it('should return false if valid xpath is not found in react component', () => {
+    expect(haveXpath(element, '//h1')).to.be.false;
   });
 });
