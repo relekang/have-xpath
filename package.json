@@ -35,7 +35,7 @@
     "eslint": "^2.2.0",
     "eslint-config-airbnb": "6.0.2",
     "eslint-config-frigg": "frigg/eslint-config-frigg",
-    "eslint-plugin-react": "^3.4.2",
+    "eslint-plugin-react": "^4.1.0",
     "jsdom": "^8.0.4",
     "lodash": "^3.10.1",
     "mocha": "^2.3.3",
