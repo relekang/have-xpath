@@ -1,7 +1,7 @@
 /* eslint-env browser */
-import {findSingleNode, getReactDomFindDOMNode, getReactFindDOMNode} from './helpers';
+import { findSingleNode, getReactDomFindDOMNode, getReactFindDOMNode } from './helpers';
 
-let findDOMNode = findDOMNode || (global && global.findDOMNode);
+let findDOMNode = findDOMNode || (global && global.findDOMNode); // eslint-disable-line no-use-before-define, max-len
 
 function haveDomNodeWithXpath(domNode, expression) {
   document.body.appendChild(domNode);

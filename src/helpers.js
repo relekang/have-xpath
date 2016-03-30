@@ -5,6 +5,7 @@ export function getReactDomFindDOMNode() {
     if (error.code !== 'MODULE_NOT_FOUND') {
       throw error;
     }
+    return null;
   }
 }
 
@@ -15,6 +16,7 @@ export function getReactFindDOMNode() {
     if (error.code !== 'MODULE_NOT_FOUND') {
       throw error;
     }
+    return null;
   }
 }
 

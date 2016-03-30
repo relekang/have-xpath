@@ -1,8 +1,8 @@
 /* eslint-env mocha, browser */
 /* eslint-disable no-unused-expressions */
-import {expect} from 'chai';
+import { expect } from 'chai';
 
-import {haveXpath} from '../src/index';
+import { haveXpath } from '../src/index';
 
 describe('DOM nodes', () => {
   const element = document.createElement('blink');

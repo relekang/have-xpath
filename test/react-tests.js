@@ -1,8 +1,8 @@
 /* eslint-env mocha */
 /* eslint-disable no-unused-expressions */
-import {expect} from 'chai';
+import { expect } from 'chai';
 
-import {haveXpath} from '../src/index';
+import { haveXpath } from '../src/index';
 
 import React from './React';
 import TestUtils from './TestUtils';
