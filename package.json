@@ -8,7 +8,7 @@
     "babel": "babel src --out-dir lib",
     "lint": "eslint .",
     "test": "mocha test/setup.js test/ --compilers js:babel-core/register --recursive",
-    "watch:test": "mocha test/setup.js test/ --compilers js:babel-core/register --recursive --watch",
+    "test:coverage": "nyc -a --require babel-core/register mocha test/setup.js test/ --compilers js:babel-core/register --recursive",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -27,6 +27,11 @@
   "eslintConfig": {
     "extends": "airbnb"
   },
+  "nyc": {
+    "include": [
+      "src/**"
+    ]
+  },
   "homepage": "https://github.com/relekang/have-xpath#readme",
   "devDependencies": {
     "babel-cli": "6.6.5",
@@ -39,6 +44,7 @@
     "jsdom": "8.2.0",
     "lodash": "4.6.1",
     "mocha": "2.4.5",
+    "nyc": "6.1.1",
     "react": "0.14.8",
     "react-addons-test-utils": "0.14.8",
     "semantic-release": "4.3.5"
