@@ -1,5 +1,6 @@
 /* eslint-env browser */
 import { findSingleNode, getFindDOMNode } from './helpers';
+export { getFindDOMNode } from './helpers';
 
 function haveDomNodeWithXpath(domNode, expression) {
   document.body.appendChild(domNode);
