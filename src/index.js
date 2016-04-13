@@ -1,7 +1,5 @@
 /* eslint-env browser */
-import { findSingleNode, getReactDomFindDOMNode, getReactFindDOMNode } from './helpers';
-
-let findDOMNode = findDOMNode || (global && global.findDOMNode); // eslint-disable-line no-use-before-define, max-len
+import { findSingleNode, getFindDOMNode } from './helpers';
 
 function haveDomNodeWithXpath(domNode, expression) {
   document.body.appendChild(domNode);
@@ -11,13 +9,8 @@ function haveDomNodeWithXpath(domNode, expression) {
   return xpathNode !== null;
 }
 
-export function getFindDOMNode() {
-  return getReactDomFindDOMNode() || getReactFindDOMNode();
-}
-
 export function haveXpath(node, xpath) {
-  findDOMNode = findDOMNode || getFindDOMNode();
-
+  const findDOMNode = getFindDOMNode();
   const domNode = findDOMNode(node);
   return haveDomNodeWithXpath(domNode, xpath);
 }
