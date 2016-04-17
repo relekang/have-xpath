@@ -30,6 +30,9 @@ describe('React components', () => {
   });
 
   it('should return true if valid xpath is found in stateless react component', () => {
+    if (/0\.13/.test(React.version)) {
+      return;
+    }
     const component = TestUtils.renderIntoDocument(<Stateless>hi</Stateless>);
     expect(haveXpath(component, '//div[@class="stateless"][contains(., "hi")]')).to.be.true;
   });
