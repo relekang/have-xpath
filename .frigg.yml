@@ -1,8 +1,11 @@
 setup_tasks:
+ - node --version
+ - npm --version
  - npm install
 
 tasks:
  - npm run lint
  - npm test
+ - npm install react@0.14.x react-dom@0.14.x react-addons-test-utils@0.14.x && npm test
  - npm uninstall react-dom react-addons-test-utils
  - npm install react@0.13 && npm test
