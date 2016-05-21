@@ -47,7 +47,7 @@
     "lodash": "4.11.2",
     "mocha": "2.4.5",
     "nyc": "6.4.0",
-    "react": "15.0.1",
+    "react": "15.1.0",
     "react-addons-test-utils": "15.0.1",
     "react-dom": "15.0.1",
     "semantic-release": "4.3.5"
