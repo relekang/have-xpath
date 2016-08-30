@@ -3,6 +3,10 @@ import { findSingleNode, getFindDOMNode } from './helpers';
 export { getFindDOMNode } from './helpers';
 
 function haveDomNodeWithXpath(domNode, expression) {
+  if (domNode === null) {
+    throw new Error('Could not find domNode to insert into document');
+  }
+
   document.body.appendChild(domNode);
   const xpathNode = findSingleNode(expression, domNode.parentNode);
   document.body.removeChild(domNode);
