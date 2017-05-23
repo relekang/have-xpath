@@ -1,23 +1,21 @@
 /* eslint-env mocha */
-/* eslint-disable no-unused-expressions, react/no-multi-comp */
+/* eslint-disable no-unused-expressions, react/no-multi-comp, react/prop-types */
 import { expect } from 'chai';
+import React from 'react';
+import TestUtils from 'react-dom/test-utils';
 
 import { haveXpath } from '../src/index';
 
-import React from './React';
-import TestUtils from './TestUtils';
 
 const { Component } = React;
 
 const CreateClass = React.createClass({ // eslint-disable-line react/prefer-es6-class, react/prefer-stateless-function, max-len
-  propTypes: { children: React.PropTypes.any },
   render() { return <div className="create-class">{this.props.children}</div>; },
 });
 
 class ClassBased extends Component { // eslint-disable-line react/prefer-stateless-function
   render() { return <div className="class-based">{this.props.children}</div>; }
 }
-ClassBased.propTypes = { children: React.PropTypes.any };
 
 describe('React components', () => {
   it('should return true if valid xpath is found in React html element', () => {
