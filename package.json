@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "test": "mocha test/setup.js test/ --compilers js:babel-core/register --recursive",
     "test:coverage": "nyc -a --require babel-core/register mocha test/setup.js test/ --compilers js:babel-core/register --recursive",
+    "test:next": "npm i react@16.0.0-alpha.12 react-dom@16.0.0-alpha.12 react-addons-test-utils@16.0.0-alpha.3 && npm t",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
