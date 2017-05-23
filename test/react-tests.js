@@ -6,7 +6,6 @@ import TestUtils from 'react-dom/test-utils';
 
 import { haveXpath } from '../src/index';
 
-
 const { Component } = React;
 
 const CreateClass = React.createClass({ // eslint-disable-line react/prefer-es6-class, react/prefer-stateless-function, max-len
@@ -19,8 +18,8 @@ class ClassBased extends Component { // eslint-disable-line react/prefer-statele
 
 describe('React components', () => {
   it('should return true if valid xpath is found in React html element', () => {
-    const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
-    expect(haveXpath(component, '//blink')).to.be.true;
+    const component = TestUtils.renderIntoDocument(<h1>hi</h1>);
+    expect(haveXpath(component, '//h1')).to.be.true;
   });
 
   it('should throw error if component is null', () => {
@@ -41,13 +40,13 @@ describe('React components', () => {
     if (/0\.13/.test(React.version)) {
       return;
     }
-    const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
-    expect(haveXpath(component, '//blink')).to.be.true;
-    expect(haveXpath(component, '//blink')).to.be.true;
+    const component = TestUtils.renderIntoDocument(<h1>hi</h1>);
+    expect(haveXpath(component, '//h1')).to.be.true;
+    expect(haveXpath(component, '//h1')).to.be.true;
   });
 
   it('should return false if valid xpath is not found in react component', () => {
-    const component = TestUtils.renderIntoDocument(<blink>hi</blink>);
-    expect(haveXpath(component, '//blink')).to.be.true;
+    const component = TestUtils.renderIntoDocument(<h1>hi</h1>);
+    expect(haveXpath(component, '//h1')).to.be.true;
   });
 });
