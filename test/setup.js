@@ -2,8 +2,9 @@
 import jsdom from 'jsdom';
 
 if (typeof global.document === 'undefined') {
-  global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
-  global.window = global.document.defaultView;
+  const dom = new jsdom.JSDOM('<!doctype html><html><body></body></html>');
+  global.document = dom.window.document;
+  global.window = dom.window;
 }
 
 global.navigator = window.navigator;
